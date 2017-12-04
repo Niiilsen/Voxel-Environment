@@ -20,8 +20,18 @@ public class Chunk
                 for (int x = 0; x < World.chunkSize; x++)
                 {
                     Vector3 pos = new Vector3(x, y, z);
-                    if (Random.Range(0, 100) < 50)
+                    int worldX = (int)(x + chunk.transform.position.x);
+                    int worldY = (int)(y + chunk.transform.position.y);
+                    int worldZ = (int)(z + chunk.transform.position.z);
+
+                    if (worldY <= Utils.GenerateStoneHeight(worldX, worldZ))
+                        chunkData[x, y, z] = new Block(BlockUtils.BlockType.STONE, pos,
+                                        chunk.gameObject, this);
+                    else if (worldY < Utils.GenerateHeight(worldX, worldZ))
                         chunkData[x, y, z] = new Block(BlockUtils.BlockType.DIRT, pos,
+                                        chunk.gameObject, this);
+                    else if (worldY == Utils.GenerateHeight(worldX, worldZ))
+                        chunkData[x, y, z] = new Block(BlockUtils.BlockType.GRASS, pos,
                                         chunk.gameObject, this);
                     else
                         chunkData[x, y, z] = new Block(BlockUtils.BlockType.AIR, pos,

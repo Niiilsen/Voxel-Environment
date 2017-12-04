@@ -79,6 +79,9 @@ public class BlockUtils {
             case BlockType.DIRT:
                 index = (int)Face.DIRT;
                 break;
+            case BlockType.STONE:
+                index = (int)Face.STONE;
+                break;
         }
         
         return index - 1;

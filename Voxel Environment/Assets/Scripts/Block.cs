@@ -54,6 +54,7 @@ public class Block{
     private bool HasSolidNeighbour(int x, int y, int z)
     {
         Chunk nChunk;
+        //Adjust
         if (x < 0 || x >= World.chunkSize ||
             y < 0 || y >= World.chunkSize ||
             z < 0 || z >= World.chunkSize)
