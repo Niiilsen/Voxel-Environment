@@ -50,7 +50,7 @@ public class BlockUtils {
         float yOffset = GetYOffsetFromIndex(index);
         Vector2 offset = new Vector2(xOffset, yOffset);
 
-        Debug.Log("Side: " + side.ToString() + "   Index: " + index + "     Offset: " + offset);
+       // Debug.Log("Side: " + side.ToString() + "   Index: " + index + "     Offset: " + offset);
 
         Vector2[] uvs = new Vector2[4];
         uvs[0] = new Vector2(tileSize, tileSize) + offset; //uv11
