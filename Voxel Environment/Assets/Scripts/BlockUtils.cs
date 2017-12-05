@@ -20,12 +20,13 @@ public class BlockUtils {
     public enum Face
     {
         STONE = 241, REFINED_STONE = 242, DIRT = 243, GRASS_SIDE = 244, WOODEN_PLANKS = 245, SLOB = 246,
-        PRESSURE_PLATE = 247, BRICK = 248, TNT_SIDE = 249, TNT_TOP = 250, TNT_BOT = 251, SPIDERWEB = 252, FLOWER_RED = 253, FLOWER_YELLOW = 254, SAPLING = 256, GRASS = 99
+        PRESSURE_PLATE = 247, BRICK = 248, TNT_SIDE = 249, TNT_TOP = 250, TNT_BOT = 251, SPIDERWEB = 252, FLOWER_RED = 253, FLOWER_YELLOW = 254, SAPLING = 256,
+        BEDROCK = 226, COAL = 211, GRASS = 99, DIAMOND = 195
     }
 
     public enum BlockType
     {
-        STONE, DIRT, GRASS, WOODEN_PLANKS, BRICK, TNT, AIR
+        STONE, DIRT, GRASS, WOODEN_PLANKS, BRICK, TNT, AIR, DIAMOND, COAL, BEDROCK
     }
 
     public enum BlockSide { BOTTOM, TOP, LEFT, RIGHT, FRONT, BACK };
@@ -68,6 +69,18 @@ public class BlockUtils {
 
         switch (type)
         {
+            case BlockType.BEDROCK:
+                index = (int)Face.BEDROCK;
+                break;
+            case BlockType.COAL:
+                index = (int)Face.COAL;
+                break;
+            case BlockType.DIAMOND:
+                index = (int)Face.DIAMOND;
+                break;
+            case BlockType.DIRT:
+                index = (int)Face.DIRT;
+                break;
             case BlockType.GRASS:
                 if (side == BlockSide.TOP)
                     index = (int)Face.GRASS;
@@ -75,9 +88,6 @@ public class BlockUtils {
                     index = (int)Face.DIRT;
                 else
                     index = (int)Face.GRASS_SIDE;
-                break;
-            case BlockType.DIRT:
-                index = (int)Face.DIRT;
                 break;
             case BlockType.STONE:
                 index = (int)Face.STONE;

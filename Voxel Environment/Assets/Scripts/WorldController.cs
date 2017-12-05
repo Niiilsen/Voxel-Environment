@@ -29,6 +29,8 @@ public class WorldController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        Utils.seed = Random.Range(0, 999999.0f);
+        print(Utils.seed);
         StartCoroutine(BuildWorld());
     }
    
